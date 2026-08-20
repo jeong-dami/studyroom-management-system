@@ -134,7 +134,7 @@ public class StudyroomRepository {
     /* removeIf로 예약 번호가 일치하는 항목을 안전하게 삭제한다.
      * 반환되는 boolean 값은 실제로 삭제된 예약이 있었는지를 의미한다.
      */
-    public boolean cancelById(int reservationId) {
+    public boolean deleteById(int reservationId) {
         return reservations.removeIf(reservation ->
                 reservation.getReservationId() == reservationId);
     }

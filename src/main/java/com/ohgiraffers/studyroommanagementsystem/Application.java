@@ -31,7 +31,7 @@ public class Application {
                 case 1 -> registerReservation(studyroomView, studyroomController);
                 case 2 -> searchMenu(studyroomView, studyroomController);
                 case 3 -> updateReservation(studyroomView, studyroomController);
-                case 4 -> cancelReservation(studyroomView, studyroomController);
+                case 4 -> deleteReservation(studyroomView, studyroomController);
                 case 9 -> {
                     studyroomView.displayMessage("프로그램을 종료합니다.");
                     studyroomView.close();
@@ -115,21 +115,21 @@ public class Application {
         studyroomController.updateReservation(reservationId, reserverName, roomName, category,
                 reservationDate, startHour, endHour, peopleCount);
     }
-    /* 예약 취소는 데이터를 삭제하는 작업이므로 사용자에게 한 번 더 확인한다.
+    /* 예약 삭제는 데이터를 제거하는 작업이므로 사용자에게 한 번 더 확인한다.
      * equalsIgnoreCase()를 사용하여 y와 Y를 모두 같은 응답으로 처리한다.
      */
-    private static void cancelReservation(StudyroomView studyroomView, StudyroomController studyroomController) {
+    private static void deleteReservation(StudyroomView studyroomView, StudyroomController studyroomController) {
         studyroomView.displayMessage("");
-        studyroomView.displayMessage("---------- 예약 취소 ----------");
+        studyroomView.displayMessage("---------- 예약 삭제 ----------");
 
-        int reservationId = studyroomView.readInt("취소할 예약 번호 : ");
+        int reservationId = studyroomView.readInt("삭제할 예약 번호 : ");
 
-        String confirm = studyroomView.readLine("정말 예약을 취소하시겠습니까? (y/n) : ");
+        String confirm = studyroomView.readLine("정말 예약을 삭제하시겠습니까? (y/n) : ");
                 if (!confirm.equalsIgnoreCase("y")) {
-                    studyroomView.displayMessage("예약 취소를 중단했습니다.");
+                    studyroomView.displayMessage("예약 삭제를 중단했습니다.");
                     return;
                 }
 
-                studyroomController.cancelReservation(reservationId);
+                studyroomController.deleteReservation(reservationId);
     }
 }

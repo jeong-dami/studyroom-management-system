@@ -165,10 +165,10 @@ public class StudyroomController {
         studyroomView.displaySuccess("예약 정보가 수정되었습니다.");
         }
 
-        /* 예약 번호가 존재하는지 확인한 뒤 해당 예약을 취소한다.
+        /* 예약 번호가 존재하는지 확인한 뒤 해당 예약을 삭제한다.
          * 먼저 조회하면 존재하지 않는 번호가 입력된 경우에도 사용자에게 정확한 원인을 안내할 수 있다.
          */
-        public void cancelReservation(int reservationId) {
+        public void deleteReservation(int reservationId) {
             Studyroom studyroom = studyroomRepository.findById(reservationId);
 
             if (studyroom == null) {
@@ -176,8 +176,8 @@ public class StudyroomController {
                 return;
             }
 
-            studyroomRepository.cancelById(reservationId);
-            studyroomView.displaySuccess("예약 번호 " + reservationId + "번의 예약이 취소되었습니다.");
+            studyroomRepository.deleteById(reservationId);
+            studyroomView.displaySuccess("예약 번호 " + reservationId + "번의 예약이 삭제되었습니다.");
         }
 
     /* 방 이름의 접두사와 사용자가 선택한 스터디룸 분류가 일치하는지 확인한다.

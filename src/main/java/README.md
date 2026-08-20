@@ -57,7 +57,7 @@
 
 시간 중복은 다음 조건으로 판단합니다.
 
-```java
+```text
 startHour < existingEndHour && endHour > existingStartHour
 ```
 

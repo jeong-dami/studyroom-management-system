@@ -37,7 +37,7 @@ public class StudyroomView {
         System.out.println("1. 예약 등록");
         System.out.println("2. 예약 조회");
         System.out.println("3. 예약 정보 수정");
-        System.out.println("4. 예약 취소");
+        System.out.println("4. 예약 삭제");
         System.out.println("9. 프로그램 종료");
     }
 
